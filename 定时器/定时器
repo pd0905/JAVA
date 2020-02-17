@@ -1,0 +1,41 @@
+package Schedule;
+/*
+      java定定时器的使用
+ */
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Stack;
+import java.util.Timer;
+import java.util.TimerTask;
+public class TimeDemo01 {
+	static  String str = "HH,mm,ss";
+	static  SimpleDateFormat formatdate = new  SimpleDateFormat(str);
+	
+	public static void main(String[] args) {
+	    Timer timer01 = new Timer();
+		String data = formatdate.format(System.currentTimeMillis());
+		System.out.println(data);
+		//timer01.scheduledExecutionTime();
+		timer01.schedule(new MyTimer(), 3000);
+	}
+
+}
+
+class MyTimer extends TimerTask{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("nijiushishabi");
+	   // String data = formatdate.format(System.currentTimeMillis());
+	    String data01 = TimeDemo01.formatdate.format(System.currentTimeMillis());
+	    
+	    TimeDemo01 time01 = new TimeDemo01();    
+	    String data02 = time01.formatdate.format(System.currentTimeMillis());
+	    
+		System.out.println(data01);
+		System.out.println(data02);
+		
+	}
+	
+}
